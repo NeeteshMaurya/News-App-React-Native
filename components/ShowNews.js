@@ -4,7 +4,6 @@ import styles from '../Style'
 import { AntDesign } from '@expo/vector-icons';
 
 const ShowNews = ({navigate,imageUrl,date,title,url}) => {
-  const shareUrl = url
 
   const onShare = async ()=>{
     try {
@@ -47,3 +46,4 @@ const ShowNews = ({navigate,imageUrl,date,title,url}) => {
 }
 
 export default ShowNews
+

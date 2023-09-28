@@ -13,13 +13,33 @@ import Fitness from '../screens/Fitness';
 const Tab = createBottomTabNavigator();
 
 const BottomTab = () => {
-    const shareUrl = ""
+    const shareUrl = "https://github.com/NeeteshMaurya/News-App-React-Native"
+
+  const onShare = async ()=>{
+    try {
+      const result = await Share.share({
+        message:('Share News: '+'\n' + shareUrl),
+      })
+      if(result.action === Share.sharedAction){
+        if(result.activityType){
+          console.log(result.activityType)
+        }
+        else{
+          console.log('shared')
+        }
+      } else if(result.action === Share.dismissedAction){
+        console.log('Dismissed')
+      }
+    } catch (error) {
+      console.log(error.message)
+    }
+  }
   return (
       <Tab.Navigator initialRouteName='Home' screenOptions={{
         // tabBarActiveBackgroundColor:'red',
         // headerTitle:'',
 
-        headerRight: ()=> <AntDesign  style={{marginRight:30}} name="sharealt" size={30} color="white" />,
+        headerRight: ()=> <AntDesign onPress={onShare} style={{marginRight:30}} name="sharealt" size={30} color="white" />,
         headerTitleAlign:'left',
         headerTitleStyle:{
             color:'white',
@@ -31,13 +51,11 @@ const BottomTab = () => {
         },
         tabBarShowLabel:false,
         tabBarStyle:{
-            backgroundColor:'white',
+            backgroundColor:'#D0D3D4',
             position:'absolute',
-            bottom: 10,
-            right:15,
-            left:15,
+            
             height: 60,
-            borderRadius:15,
+            borderRadius:0,
             elevation:15        }
       }}>
         <Tab.Screen name='Home' component={Home} options={{

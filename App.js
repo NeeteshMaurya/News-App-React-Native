@@ -9,16 +9,14 @@ import Home from './screens/Home';
 const stack = createNativeStackNavigator()
 export default function App() {
   return (
-    // <SafeAreaView style={styles.droidSafeArea}>
         <NavigationContainer >
-          <StatusBar style='light' backgroundColor='#000333' />
+          <StatusBar style='light' backgroundColor='#000033' />
           <stack.Navigator initialRouteName='BottomTab' screenOptions={{headerShown:false}}>
             {/* <stack.Screen name='Home' component={Home} /> */}
             <stack.Screen name="BottomTab" component={BottomTab} />
             <stack.Screen name='FullArticle' component={FullArticle} />
           </stack.Navigator>
         </NavigationContainer>
-    // </SafeAreaView>
   );
 }
 

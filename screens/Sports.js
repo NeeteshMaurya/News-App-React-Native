@@ -7,7 +7,7 @@ const Sports = () => {
   let apiUrl = `/top-headlines/category/sports/in.json`
   const{response, isLoading} = useAxios(apiUrl)
 
-  console.log(response)
+  
   return (
       <View style={{backgroundColor:'#000033'}}>
         {response!== null ?
